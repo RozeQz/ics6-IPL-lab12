@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Input:</strong>
+  <%= @palindrome.input %>
+</p>
+
+<p>
+  <strong>Output:</strong>
+  <%= @palindrome.output %>
+</p>
+
+<%= link_to 'Edit', edit_palindrome_path(@palindrome) %> |
+<%= link_to 'Back', palindromes_path %>
