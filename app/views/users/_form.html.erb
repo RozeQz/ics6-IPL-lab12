@@ -13,20 +13,25 @@
 
   <div class="field">
     <%= form.label :username %>
-    <%= form.text_field :username %>
+    <%= form.text_field :username, placeholder: 'Username', class: 'form-control', required: true %>
   </div>
 
   <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest %>
+    <%= form.label :email %>
+    <%= form.email_field :email, placeholder: 'E-mail', class: 'form-control', required: true %>
   </div>
 
   <div class="field">
-    <%= form.label :last_login_at %>
-    <%= form.datetime_select :last_login_at %>
+    <%= form.label :password %>
+    <%= form.password_field :password, class: 'form-control', required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation, class: 'form-control', required: true %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Зарегистрироваться', class: 'btn btn-primary btn-lg' %>
   </div>
 <% end %>

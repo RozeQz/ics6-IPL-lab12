@@ -1,0 +1,7 @@
+<%= form_with url: session_create_url, method: :post, local:true do |form| %>
+  <%= form.text_field :username, required:true %>
+  <%= form.password_field :password, required:true %>
+  <%= form.submit "Войти" %>
+<% end %>
+
+<%= link_to 'Регистрация', new_user_path %>

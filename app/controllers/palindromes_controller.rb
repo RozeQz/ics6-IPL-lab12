@@ -1,5 +1,5 @@
 class PalindromesController < ApplicationController
-  before_action :set_palindrome, only: %i[ show edit update destroy ]
+  before_action :set_palindrome, only: %i[show edit update destroy]
 
   # GET /palindromes or /palindromes.json
   def index
