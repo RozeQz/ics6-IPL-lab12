@@ -1,0 +1,25 @@
+<h1>Palindromes</h1>
+
+<% if @error %>
+<p class = "text-danger"><%= @error %></p>
+<% else %>
+<div>Вы ввели: <%= @input %></div>
+<div>Ответ: <%= @result %></div><br/>  
+    <table class="table table-striped">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Число</th>
+            <th scope="col">Квадрат числа</th>
+        </tr>
+        <% @numbers&.each_with_index do |numbers, i| %>
+        <tr>
+            <td scope="row"><%= i+1 %></td>
+            <td scope="row"><%= numbers %></td>
+            <td scope="row"><%= numbers * numbers %></td>
+        </tr>
+        <% end %>
+    </table><br/>
+<% end %>
+<button type="button" class="btn btn-link">
+    <%= link_to "Вернуться", root_path %>
+</button>

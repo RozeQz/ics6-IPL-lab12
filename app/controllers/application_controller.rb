@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include ErrorHandling
   include SessionHelper
 
   before_action :require_login

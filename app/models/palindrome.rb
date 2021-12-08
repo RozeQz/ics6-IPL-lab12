@@ -1,2 +1,0 @@
-class Palindrome < ApplicationRecord
-end

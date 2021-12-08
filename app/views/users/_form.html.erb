@@ -1,37 +1,55 @@
-<%= form_with(model: user) do |form| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<% if user.errors.full_messages.any? %>
+  <div class="alert alert-danger">
+    <ul class="mb-0">
+      <% user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
-      <ul>
-        <% user.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+<%= form_with model: user do |form| %>
+
+  <form class="">
+    <div class="d-flex form-group-row align-center pb-3 w-50">
+      <%= form.label :username, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.text_field :username, placeholder: 'Username', class: 'form-control', required: true%>
+      </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :username %>
-    <%= form.text_field :username, placeholder: 'Username', class: 'form-control', required: true %>
-  </div>
+    <div class="d-flex form-group-row pb-3 w-50">
+      <%= form.label :email, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.email_field :email, placeholder: 'name@example.com', class: 'form-control', required: true%>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.email_field :email, placeholder: 'E-mail', class: 'form-control', required: true %>
-  </div>
+    <div class="d-flex form-group-row pb-3 w-50">
+      <%= form.label :password, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.password_field :password, placeholder: 'Password', class: 'form-control', required: true%>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password, class: 'form-control', required: true %>
-  </div>
+    <div class="d-flex form-group-row pb-3 w-50">
+      <%= form.label :password_confirmation, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= form.password_field :password_confirmation, placeholder: 'Repeat your password', class: 'form-control' %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation, class: 'form-control', required: true %>
-  </div>
+    <div class="form-group-row pb-3 w-50">
+      <div class="">
+        <%= form.submit 'Зарегистрироваться', class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </form>
 
-  <div class="actions">
-    <%= form.submit 'Зарегистрироваться', class: 'btn btn-primary btn-lg' %>
-  </div>
+  <p class="text-dark">
+    Уже есть аккаунт?
+    <a class="text-link" href="/session/login">Войдите</a>
+  </p>
+      
+    <%# <p>Уже есть аккаунт? <a href="/session/login">Войдите</a></p> %>
 <% end %>

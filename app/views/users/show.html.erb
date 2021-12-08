@@ -6,8 +6,15 @@
 </p>
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <time datetime="<%= @user.formatted_created_at %>">
+    <%= @user.formatted_created_at %>
+  </time>
 </p>
 
 <p>
