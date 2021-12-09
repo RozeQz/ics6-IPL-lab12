@@ -1,4 +1,6 @@
-<% if user.errors.full_messages.any? %>
+<%= form_with model: user, class: 'w-25 d-flex flex-column justify-content-center m-auto' do |form| %>
+
+  <% if user.errors.full_messages.any? %>
   <div class="alert alert-danger">
     <ul class="mb-0">
       <% user.errors.full_messages.each do |error| %>
@@ -6,50 +8,31 @@
       <% end %>
     </ul>
   </div>
-<% end %>
+  <% end %>
 
-<%= form_with model: user do |form| %>
+  <div class="form-group pb-3 pt-10">
+    <%= form.text_field :username, placeholder: 'Имя пользователя', class: 'form-control', required: true%>
+  </div>
 
-  <form class="">
-    <div class="d-flex form-group-row align-center pb-3 w-50">
-      <%= form.label :username, class: 'col-sm-2 col-form-label' %>
-      <div class="col-sm-10">
-        <%= form.text_field :username, placeholder: 'Username', class: 'form-control', required: true%>
-      </div>
-    </div>
+  <div class="form-group pb-3">
+    <%= form.email_field :email, placeholder: 'name@example.com', class: 'form-control', required: true%>
+  </div>
 
-    <div class="d-flex form-group-row pb-3 w-50">
-      <%= form.label :email, class: 'col-sm-2 col-form-label' %>
-      <div class="col-sm-10">
-        <%= form.email_field :email, placeholder: 'name@example.com', class: 'form-control', required: true%>
-      </div>
-    </div>
+  <div class="form-group pb-3">
+    <%= form.password_field :password, placeholder: 'Пароль', class: 'form-control', required: true%>
+  </div>
 
-    <div class="d-flex form-group-row pb-3 w-50">
-      <%= form.label :password, class: 'col-sm-2 col-form-label' %>
-      <div class="col-sm-10">
-        <%= form.password_field :password, placeholder: 'Password', class: 'form-control', required: true%>
-      </div>
-    </div>
+  <div class="form-group pb-3">
+    <%= form.password_field :password_confirmation, placeholder: 'Подтверждение пароля', class: 'form-control' %>
+  </div>
 
-    <div class="d-flex form-group-row pb-3 w-50">
-      <%= form.label :password_confirmation, class: 'col-sm-2 col-form-label' %>
-      <div class="col-sm-10">
-        <%= form.password_field :password_confirmation, placeholder: 'Repeat your password', class: 'form-control' %>
-      </div>
-    </div>
+  <div class="form-group pt-3 pb-3 text-center">
+      <%= form.submit 'Зарегистрироваться', class: 'btn btn-primary' %>
+  </div>
 
-    <div class="form-group-row pb-3 w-50">
-      <div class="">
-        <%= form.submit 'Зарегистрироваться', class: 'btn btn-primary' %>
-      </div>
-    </div>
-  </form>
-
-  <p class="text-dark">
+  <p class="text-dark text-center">
     Уже есть аккаунт?
     <a class="text-link" href="/session/login">Войдите</a>
   </p>
-      
-    <%# <p>Уже есть аккаунт? <a href="/session/login">Войдите</a></p> %>
 <% end %>
+

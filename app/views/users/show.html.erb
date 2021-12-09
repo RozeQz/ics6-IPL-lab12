@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+<% provide :page_title, @user.username %>
+<% currently_at 'Пользователи' %>
 
 <p>
   <strong>Username:</strong>
@@ -19,8 +20,10 @@
 
 <p>
   <strong>Last login at:</strong>
-  <%= @user.last_login_at %>
+  <time datetime="<%= @user.last_login_at %>">
+    <%= @user.last_login_at %>
+  </time>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Редактировать', edit_user_path(@user) %> |
+<%= link_to 'Назад', users_path %>

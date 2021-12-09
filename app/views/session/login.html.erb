@@ -1,6 +1,9 @@
-<%= form_with url: session_create_url, method: :post, local:true do |form| %>
+<% provide :page_title, 'Вход' %>
 
-  <form>
+<div>
+  <div><h1>Вход</h1></div>
+
+  <%= form_with url: session_create_url, method: :post, local:true do |form| %>
     <div class="d-flex form-group-row pb-3 w-50">
       <%= form.label :username, class: 'col-sm-2 col-form-label' %>
       <div class="col-sm-10">
@@ -20,11 +23,9 @@
         <%= form.submit 'Войти', class: 'btn btn-primary' %>
       </div>
     </div>
-  </form>
-
-  <%# form.text_field :username, required:true %>
-  <%# form.password_field :password, required:true %>
-  <%# form.submit "Войти" %>
-<% end %>
-
-<%= link_to 'Регистрация', new_user_path %>
+  <% end %>
+  <p class="text-dark text-center">
+        Еще нет профиля?
+        <%= link_to 'Зарегистрируйтесь', new_user_path %>
+  </p>
+</div>

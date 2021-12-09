@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Palindromes</title>
+    <title><%= full_title(yield(:page_title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div class="container">
+    <%# <div class="container">
       <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
         <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
           <svg fill="#343434" xmlns="http://www.w3.org/2000/svg" width="100" viewBox="-59.385 -34.8 514.67 208.8">
@@ -36,7 +36,9 @@
           <button type="button" class="btn btn-primary">Sign in</button>
         </div>
       </header>
-    </div>
+    </div> %>
+
+    <%= yield :main_menu %>
     
     <main class="container">
       <% flash.each do |k, v| %>
