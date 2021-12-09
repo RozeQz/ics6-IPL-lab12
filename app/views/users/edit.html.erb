@@ -1,7 +1,15 @@
 <% provide :page_title, 'Редактировать' %>
 <% currently_at 'Пользователи' %>
 
-<h1>Редактирование</h1>
+<style>
+  .registration-label{
+    padding-bottom: 16px;
+    font-family: var(--bs-font-sans-serif);
+    /* color: #0d6efd; */
+  }
+</style>
+
+<h1 class="registration-label">Редактирование</h1>
 
 <%= render 'form', user: @user %>
 

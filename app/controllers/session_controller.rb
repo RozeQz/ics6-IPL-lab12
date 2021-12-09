@@ -11,7 +11,7 @@ class SessionController < ApplicationController
     # содержимым в базе данных.
     if user&.authenticate(params[:password])
       p 'LOGIN'
-      # sign_in user
+      sign_in user
       redirect_to root_path
     else
       p 'REDIRECT'

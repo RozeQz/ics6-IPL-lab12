@@ -20,10 +20,10 @@
       </ul>
       <div class="col-md-3 text-end">
         <% if user_signed_in? %>
-          <button type="button" class="btn btn-outline-primary me-2">Выйти</button>
+          <button type="button" class="btn btn-outline-primary me-2" onClick='location.href="/session/logout"'>Выйти</button>
         <% else %>
-          <button type="button" class="btn btn-outline-primary me-2">Войти</button>
-          <button type="button" class="btn btn-primary">Зарегистрироваться</button>
+          <button type="button" class="btn btn-outline-primary me-2" onClick='location.href="/session/login"'>Войти</button>
+          <button type="button" class="btn btn-primary", onClick='location.href="/users/new"'>Зарегистрироваться</button>
         <% end %>
       </div>
     </header>

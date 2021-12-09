@@ -1,6 +1,6 @@
 module SessionHelper
   def sign_in(user)
-    cookies.signed[:user_id] = { value: user.id, expires: 10.days, http_only: true }
+    cookies.signed[:user_id] = { value: user.id, expires: 2.days, http_only: true }
     self.current_user = user
   end
 

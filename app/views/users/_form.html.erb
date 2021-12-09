@@ -1,4 +1,4 @@
-<%= form_with model: user, class: 'col-4 d-flex flex-column justify-content-center m-auto' do |form| %>
+<%= form_with model: user, class: 'col-4 form-settings' do |form| %>
 
   <% if user.errors.full_messages.any? %>
   <div class="alert alert-danger">
@@ -26,13 +26,8 @@
     <%= form.password_field :password_confirmation, placeholder: 'Подтверждение пароля', class: 'form-control' %>
   </div>
 
-  <div class="form-group pt-3 pb-3 text-center">
+  <div class="form-group pt-3 pb-3 form-button">
       <%= form.submit 'Зарегистрироваться', class: 'btn btn-primary' %>
   </div>
-
-  <p class="text-dark text-center pt-3">
-    Уже есть аккаунт?
-    <a class="text-link" href="/session/login">Войдите</a>
-  </p>
 <% end %>
 
