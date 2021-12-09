@@ -1,15 +1,4 @@
 <%= form_with model: user, class: 'col-4 form-settings' do |form| %>
-
-  <% if user.errors.full_messages.any? %>
-  <div class="alert alert-danger">
-    <ul class="mb-0">
-      <% user.errors.full_messages.each do |error| %>
-        <li><%= error %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% end %>
-
   <div class="form-group pb-3 pt-10">
     <%= form.text_field :username, placeholder: 'Имя пользователя', class: 'form-control', required: true%>
   </div>

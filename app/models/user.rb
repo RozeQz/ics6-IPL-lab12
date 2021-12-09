@@ -8,4 +8,13 @@ class User < ApplicationRecord
   def formatted_created_at
     created_at.strftime("%d.%m.%Y %T %Z")
   end
+
+  def formated_last_login_at
+    last_login_at.strftime("%d.%m.%Y %T %Z")
+  end
+
+  def update_last_login_at
+    self.last_login_at = DateTime.now.strftime("%d.%m.%Y %T %Z")
+    save
+  end
 end

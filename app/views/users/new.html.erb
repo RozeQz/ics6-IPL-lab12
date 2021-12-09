@@ -2,7 +2,7 @@
 
 <style>
   .container{
-    padding-top: 30px;
+    padding-top: 70px;
   }
   .registration-label{
     padding-bottom: 16px;
@@ -20,12 +20,24 @@
   }
 </style>
 
-<h1 class="text-center registration-label">Регистрация</h1>
+  <% if @user.errors.full_messages.any? %>
+    <div class="alert alert-danger">
+      <ul class="mb-0">
+        <% @user.errors.full_messages.each do |error| %>
+          <li><%= error %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= render 'form', user: @user %>
+<div class="container">
+  <h1 class="text-center registration-label">Регистрация</h1>
 
-<p class="text-dark text-center pt-3">
-  Уже есть аккаунт?
-  <a class="text-link" href="/session/login">Войдите</a>
-</p>
+  <%= render 'form', user: @user %>
+
+  <p class="text-dark text-center pt-3">
+    Уже есть аккаунт?
+    <a class="text-link" href="/session/login">Войдите</a>
+  </p>
+</div>
 

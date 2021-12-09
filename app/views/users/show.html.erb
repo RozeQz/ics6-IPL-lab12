@@ -1,6 +1,8 @@
 <% provide :page_title, @user.username %>
 <% currently_at 'Профиль' %>
 
+<p id="notice"><%= notice %></p>
+
 <h1><%= @user.username %></h1><br/>
 
 <p>
@@ -22,8 +24,8 @@
 
 <p>
   <strong>Последний вход на сайт:</strong>
-  <time datetime="<%= @user.last_login_at %>">
-    <%= @user.last_login_at %>
+  <time datetime="<%= @user.update_last_login_at %>">
+    <%= @user.formated_last_login_at %>
   </time>
 </p>
 
