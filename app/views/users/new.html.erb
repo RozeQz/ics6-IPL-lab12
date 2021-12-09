@@ -1,6 +1,6 @@
-<!DOCTYPE html>
 <% provide :page_title, 'Регистрация' %>
 
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -11,18 +11,21 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
-  <style>
+    <style>
     .container{
       padding-top: 30px;
     }
     .registration-label{
-      padding-bottom: 30px;
+      padding-bottom: 16px;
+      font-family: var(--bs-font-sans-serif);
+      /* color: #0d6efd; */
     }
   </style>
+  </head>
 
   <body class="container">
+    
   <h1 class="text-center registration-label">Регистрация</h1>
 
     <%= render 'form', user: @user %>

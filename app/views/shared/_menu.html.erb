@@ -15,7 +15,7 @@
           { class: 'nav-link px-2', current_page: current_page } %></li>
         <li><%= nav_tab 'Пользователи', users_path,
           { class: 'nav-link px-2', current_page: current_page } %></li>
-        <li><%= nav_tab 'Профиль', users_path,
+        <li><%= nav_tab 'Профиль', users_path(current_user).gsub!('.','/'),
           { class: 'nav-link px-2', current_page: current_page } %></li>
       </ul>
       <div class="col-md-3 text-end">

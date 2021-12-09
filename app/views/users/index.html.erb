@@ -1,14 +1,14 @@
 <% provide :page_title, 'Пользователи' %>
 <% currently_at 'Пользователи' %>
 
-<h1>Пользователи</h1>
+<h1>Пользователи</h1><br/>
 
 <table>
   <thead>
     <tr>
-      <th>Username</th>
-      <th>Password digest</th>
-      <th colspan="2"></th>
+      <th class="col-3">Имя пользователя</th>
+      <th class="col">Хэшированный пароль</th>    <%# для того, чтобы убедиться, что пароль нельзя украсть %>
+      <th class="col"></th>
     </tr>
   </thead>
 
@@ -17,9 +17,7 @@
       <tr>
         <td><%= user.username %></td>
         <td><%= user.password_digest %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Вы уверены?' } %></td>
+        <td><%= link_to 'Посмотреть', user %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +25,5 @@
 
 <br>
 
-<%= link_to 'Зарегистрировать пользователя', new_user_path %>
+<button onClick='location.href="/users/new"' type="button" class="btn btn-outline-primary me-2">Зарегистрировать пользователя</button>
+<%# link_to 'Зарегистрировать пользователя', new_user_path %>
