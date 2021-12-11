@@ -20,15 +20,7 @@
   }
 </style>
 
-  <% if @user.errors.full_messages.any? %>
-    <div class="alert alert-danger">
-      <ul class="mb-0">
-        <% @user.errors.full_messages.each do |error| %>
-          <li><%= error %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= render 'shared/errors', object: @user %>
 
 <div class="container">
   <h1 class="text-center registration-label">Регистрация</h1>

@@ -1,5 +1,5 @@
 <% provide :page_title, @user.username %>
-<% currently_at 'Профиль' %>
+<% currently_at @user.username %>
 
 <p id="notice"><%= notice %></p>
 
@@ -24,10 +24,12 @@
 
 <p>
   <strong>Последний вход на сайт:</strong>
-  <time datetime="<%= @user.update_last_login_at %>">
+  <time datetime="<%= @user.last_login_at unless @user.last_login_at.nil? %>">
     <%= @user.formated_last_login_at %>
   </time>
 </p>
 
-<%= link_to 'Редактировать', edit_user_path(@user) %> |
-<%= link_to 'Удалить аккаунт', @user, method: :delete, data: { confirm: 'Вы уверены?' } %>
+<% if current_user == @user %>
+  <%= link_to 'Редактировать', edit_user_path(@user) %> |
+  <%= link_to 'Удалить аккаунт', @user, method: :delete, data: { confirm: 'Вы уверены?' } %>
+<% end %>

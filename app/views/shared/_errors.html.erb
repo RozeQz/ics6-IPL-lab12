@@ -1,11 +1,9 @@
-<%= provide :errors do %>  
-  <% if object.errors.any? %>
-      <div class="alert alert-danger">
-        <ul class="mb-0">
-          <% object.errors.each do |error| %>
-            <li><%= error %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
+<% if object.errors.full_messages.any? %>
+  <div class="alert alert-danger">
+    <ul class="mb-0">
+      <% object.errors.values.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

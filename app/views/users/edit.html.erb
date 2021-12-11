@@ -1,5 +1,5 @@
 <% provide :page_title, 'Редактировать' %>
-<% currently_at 'Пользователи' %>
+<% currently_at current_user.username %>
 
 <style>
   .registration-label{
@@ -9,9 +9,8 @@
   }
 </style>
 
+<%= render 'shared/errors', object: @user %>
+
 <h1 class="registration-label">Редактирование</h1>
 
 <%= render 'form', user: @user %>
-
-<%= link_to 'Профиль', @user %> |
-<%= link_to 'Назад', users_path %>
