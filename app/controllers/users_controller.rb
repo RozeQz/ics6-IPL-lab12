@@ -5,10 +5,13 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
+    @online_users = User.where("last_login_at > ?", 3.minutes.ago)
   end
 
   # GET /users/1 or /users/1.json
   def show
+    @users = User.all
+    @online_users = User.where("last_login_at > ?", 3.minutes.ago)
   end
 
   # GET /users/new
@@ -40,7 +43,10 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user }
+        format.html do 
+          flash[:success] = 'Параметры пользователя были успешно обновлены.'
+          redirect_to @user
+        end
         format.json { render :show, status: :ok, location: @user }
       else
         format.html { render :edit, status: :unprocessable_entity }

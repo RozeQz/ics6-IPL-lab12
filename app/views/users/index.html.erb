@@ -3,21 +3,35 @@
 
 <h1>Пользователи</h1><br/>
 
-<table>
+<table class="w-100">
   <thead>
-    <tr>
-      <th class="col-3">Имя пользователя</th>
-      <th class="col">Хэшированный пароль</th>    <%# для того, чтобы убедиться, что пароль нельзя украсть %>
+    <tr class="row">
+      <th class="col-2">Имя пользователя</th>
+      <th class="col-4">Хэшированный пароль</th>    <%# для того, чтобы убедиться, что пароль нельзя украсть %>
+      <th class="col-2">Последний вход на сайт</th>
       <th class="col"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.username %></td>
-        <td><%= user.password_digest %></td>
-        <td><%= link_to 'Посмотреть', user %></td>
+      <tr class="row">
+        <td class="col-2"><%= user.username %></td>
+        <td class="col-4"><%= truncate user.password_digest, length: 45 %></td>
+        <td class="col-2">
+        <% if @online_users&.index(user) %>
+          <span class="badge badge-pill alert-success">Online</span>
+        <% else %>
+          <% if user.last_login_at > 4.hours.ago %>
+            <%= user.last_login_at.nil? ? "Never signed in" : time_ago_in_words(user.last_login_at) %> ago
+          <% else %>
+            <time datetime="<%= user.last_login_at unless user.last_login_at.nil? %>">
+              <%= user.formated_last_login_at %>
+            </time>
+          <% end %>
+        <% end %>
+        </td>
+        <td class="col"><%= link_to 'Посмотреть', user %></td>
       </tr>
     <% end %>
   </tbody>
