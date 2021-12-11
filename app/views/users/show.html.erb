@@ -1,6 +1,12 @@
 <% provide :page_title, @user.username %>
 <% currently_at @user.username %>
 
+<style>
+  .user-buttons{
+    margin-top: 40px;
+  }
+</style>
+
 <p id="notice"><%= notice %></p>
 
 <h1><%= @user.username %></h1><br/>
@@ -27,7 +33,7 @@
   <% if @online_users&.index(@user) %>
     <span class="badge alert-success">Online</span>
   <% else %>
-    <% if @user.last_login_at > 4.hours.ago %>
+    <% if @user.last_login_at > 8.hours.ago %>
       <%= @user.last_login_at.nil? ? "Never signed in" : time_ago_in_words(@user.last_login_at) %> ago
     <% else %>
       <time datetime="<%= @user.last_login_at unless user.last_login_at.nil? %>">
@@ -38,6 +44,8 @@
 </p>
 
 <% if current_user == @user %>
-  <%= link_to 'Редактировать', edit_user_path(@user), class: "btn btn-outline-primary me-2" %>
-  <%= link_to 'Удалить аккаунт', @user, class: "btn btn-outline-danger me-2", method: :delete, data: { confirm: 'Вы уверены?' } %>
+  <div class="user-buttons">
+    <%= link_to 'Редактировать', edit_user_path(@user), class: "btn btn-outline-primary me-3" %>
+    <%= link_to 'Удалить аккаунт', @user, class: "btn btn-outline-danger me-2", method: :delete, data: { confirm: 'Вы уверены?' } %>
+  </div>
 <% end %>

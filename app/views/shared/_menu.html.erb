@@ -30,7 +30,7 @@
                 
                 <ul class="dropdown-menu text-end dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                   <li><%= link_to 'Профиль', current_user, class: 'dropdown-item' %></li>
-                  <li><%= link_to 'Редактировать', edit_user_path(current_user), class: 'dropdown-item' %></li>
+                  <li><%= link_to 'Настройки', edit_user_path(current_user), class: 'dropdown-item' %></li>
                   <li class="dropdown-divider"></li>  
                   <li><%= link_to 'Выйти', session_logout_path, class: 'dropdown-item' %></li>
                 </ul>

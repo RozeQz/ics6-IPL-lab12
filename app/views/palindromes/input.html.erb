@@ -7,7 +7,7 @@
         26^2 = 676.
 </p>
 
-<%= form_tag("/palindromes/view", :method => "get") do %> 
+<%= form_tag(palindromes_view_path, :method => "get") do %> 
 
     <%= label_tag :n, "Введите n: " %> 
     <%= text_field_tag :n, '', id: 'input_number', required: true %> <br/><br/>        <%#(:n, default_value)%>

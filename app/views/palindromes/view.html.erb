@@ -4,7 +4,7 @@
 <h1>Palindromes</h1><br/>
 
 <% if @error %>
-<p class = "text-danger"><%= @error %></p>
+    <% flash[:danger] = @error %>
 <% else %>
 <div>Вы ввели: <%= @input %></div>
 <div>Ответ: <%= @result %></div><br/>  
@@ -23,6 +23,4 @@
         <% end %>
     </table><br/>
 <% end %>
-<button type="button" class="btn btn-link">
-    <%= link_to "Вернуться", root_path %>
-</button>
+<%= link_to "Вернуться", root_path %>
