@@ -1,45 +1,47 @@
-require "application_system_test_case"
+# frozen_string_literal: true
+
+require 'application_system_test_case'
 
 class PalindromesTest < ApplicationSystemTestCase
   setup do
     @palindrome = palindromes(:one)
   end
 
-  test "visiting the index" do
+  test 'visiting the index' do
     visit palindromes_url
-    assert_selector "h1", text: "Palindromes"
+    assert_selector 'h1', text: 'Palindromes'
   end
 
-  test "creating a Palindrome" do
+  test 'creating a Palindrome' do
     visit palindromes_url
-    click_on "New Palindrome"
+    click_on 'New Palindrome'
 
-    fill_in "Input", with: @palindrome.input
-    fill_in "Output", with: @palindrome.output
-    click_on "Create Palindrome"
+    fill_in 'Input', with: @palindrome.input
+    fill_in 'Output', with: @palindrome.output
+    click_on 'Create Palindrome'
 
-    assert_text "Palindrome was successfully created"
-    click_on "Back"
+    assert_text 'Palindrome was successfully created'
+    click_on 'Back'
   end
 
-  test "updating a Palindrome" do
+  test 'updating a Palindrome' do
     visit palindromes_url
-    click_on "Edit", match: :first
+    click_on 'Edit', match: :first
 
-    fill_in "Input", with: @palindrome.input
-    fill_in "Output", with: @palindrome.output
-    click_on "Update Palindrome"
+    fill_in 'Input', with: @palindrome.input
+    fill_in 'Output', with: @palindrome.output
+    click_on 'Update Palindrome'
 
-    assert_text "Palindrome was successfully updated"
-    click_on "Back"
+    assert_text 'Palindrome was successfully updated'
+    click_on 'Back'
   end
 
-  test "destroying a Palindrome" do
+  test 'destroying a Palindrome' do
     visit palindromes_url
     page.accept_confirm do
-      click_on "Destroy", match: :first
+      click_on 'Destroy', match: :first
     end
 
-    assert_text "Palindrome was successfully destroyed"
+    assert_text 'Palindrome was successfully destroyed'
   end
 end

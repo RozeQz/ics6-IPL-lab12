@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PalindromesController < ApplicationController
   def input; end
 
@@ -20,6 +22,7 @@ class PalindromesController < ApplicationController
 
   def validate_input(input)
     raise 'Вы ничего не ввели!' if input.empty?
+
     Integer(input)
   end
 end

@@ -11,12 +11,19 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+
+    <style>
+    .main-container{
+      margin-bottom: 70px;
+    }
+    </style>
+
   </head>
 
   <body>
     <%= yield :main_menu %>
     
-    <main class="container">
+    <main class="container main-container">
 
     <ul class="p-0">
       <% flash.each do |k, v| %>

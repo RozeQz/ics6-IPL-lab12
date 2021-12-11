@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SessionHelper
   def sign_in(user)
     cookies.signed[:user_id] = { value: user.id, expires: 2.days, http_only: true }
@@ -23,5 +25,4 @@ module SessionHelper
   def current_user
     @current_user ||= User.find_by(id: cookies.signed[:user_id])
   end
-
 end

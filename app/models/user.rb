@@ -1,31 +1,32 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   attr_accessor :old_password
 
   has_secure_password validations: false
 
-
   validate :password_presence
   validate :correct_old_password, on: :update, if: -> { password.present? }
   validate :password_complexity
 
-  validates :password, confirmation: {message: 'Пароли не совпадают.'},
-                       allow_blank: true, 
-                       length: {minimum: 6, maximum: 70, message: 'Пароль слишком короткий, 
-                                                                   минимальная длина - 6 символов.'}
+  validates :password, confirmation: { message: 'Пароли не совпадают.' },
+                       allow_blank: true,
+                       length: { minimum: 6, maximum: 70, message: 'Пароль слишком короткий,
+                                                                   минимальная длина - 6 символов.' }
 
-  validates :email, presence: {message: 'Пожалуйста, введите электронную почту.'},
-                    uniqueness: {message: 'Пользователь с такой электронной почтой уже зарегистрирован.'},
-                    format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'Введена некорректная электронная почта.'}
+  validates :email, presence: { message: 'Пожалуйста, введите электронную почту.' },
+                    uniqueness: { message: 'Пользователь с такой электронной почтой уже зарегистрирован.' },
+                    format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'Введена некорректная электронная почта.' }
   # validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
-  validates :username, presence: {message: 'Пожалуйста, введите имя пользователя.'},
-                       uniqueness: {message: 'Пользователь с таким именем уже зарегистрирован.'}
+  validates :username, presence: { message: 'Пожалуйста, введите имя пользователя.' },
+                       uniqueness: { message: 'Пользователь с таким именем уже зарегистрирован.' }
 
   def formatted_created_at
-    created_at.strftime("%d.%m.%Y %T %Z")
+    created_at.strftime('%d.%m.%Y %T %Z')
   end
 
   def formated_last_login_at
-    last_login_at.strftime("%d.%m.%Y %T %Z")
+    last_login_at.strftime('%d.%m.%Y %T %Z')
   end
 
   private
