@@ -36,7 +36,7 @@
     <% if @user.last_login_at > 8.hours.ago %>
       <%= @user.last_login_at.nil? ? "Never signed in" : time_ago_in_words(@user.last_login_at) %> ago
     <% else %>
-      <time datetime="<%= @user.last_login_at unless user.last_login_at.nil? %>">
+      <time datetime="<%= @user.last_login_at unless @user.last_login_at.nil? %>">
         <%= @user.formated_last_login_at %>
       </time>
     <% end %>
